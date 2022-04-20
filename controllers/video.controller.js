@@ -5,14 +5,14 @@ const {getPagination,} = require('../utils/query');
 //BASE URL
 const baseApiUrl = "https://www.googleapis.com/youtube/v3";
 
-//This function get the videos with pagination
+//This function get the videos with pagination in reverse chronological order
 async function getVideo(req,res){
     const {skip, limit } = getPagination(req.query)   
     const videoResponse = await Video.find({},{
         __v:0,
         _id:0
     })
-        .sort({index: -1})
+        .sort({publishTime: -1})
         .skip(skip)
         .limit(limit)
     
@@ -25,7 +25,7 @@ async function getVideo(req,res){
 }
 
 
-//This function loads the video data to the database 
+//This function loads the video data to the database in reverse chronological order
 async function loadVideoData(){
     
     //search string which we want to load to our database
@@ -63,6 +63,8 @@ async function searchVideo(req,res){
         __v:0,
         _id:0
     })
+    .sort({publishTime: -1})
+
 
     if(!video){
         res.status(400).json({
