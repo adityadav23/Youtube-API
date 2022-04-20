@@ -14,7 +14,7 @@ async function startServer(){
     setInterval( async () => {
         await loadVideoData()
         console.log("setInterval called")
-    }, 10000*100);    
+    }, 10*1000);    
     //Connection to the database
     await connectDb(process.env.MONGO_URI)
 
