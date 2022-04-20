@@ -5,9 +5,11 @@
 # Setup
  To run application:
  =>Download the application
- => Create a file ".env" => Add Atlas Mongo Db connection link[MONGO_URI] 
-                         => Add Youtube api key [API_KEY]
  => npm install
+ 
+ => Create a file ".env" => Add Atlas Mongo Db connection link as [MONGO_URI] 
+                         => Add Youtube api key as [API_KEY]
+ 
  => npm start 
  
  
